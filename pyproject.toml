@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-debug-proxy"
+version = "1.0.0"
+description = "Intercept, log, and replay MCP server traffic for debugging and development"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Shadowcraft Labs"}]
+keywords = ["mcp", "debug", "proxy", "claude", "ai", "developer-tools"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Debuggers",
+    "Programming Language :: Python :: 3",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-asyncio>=0.21"]
+
+[project.urls]
+Homepage = "https://shadowcraft41.gumroad.com/l/mcp-debug"
+Repository = "https://github.com/ZachDreamZ/mcp-debug-proxy"
+
+[project.scripts]
+mcp-debug = "mcp_debug_proxy.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mcp_debug_proxy*"]
