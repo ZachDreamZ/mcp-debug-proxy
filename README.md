@@ -65,3 +65,8 @@ Useful for regression testing and load testing.
 ## License
 
 MIT
+
+## Free Tool: MCP Health Check
+
+For a quick way to verify your MCP server is working, check out [MCP Health Check](https://github.com/ZachDreamZ/mcp-health-check) — a free CLI that tests initialize, 	ools/list, and response latency.
+
