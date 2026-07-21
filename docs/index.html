@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Debug Proxy — Debug MCP Server Traffic | Documentation</title>
+<meta name="description" content="Intercept, log, analyze, and replay MCP (Model Context Protocol) server traffic. A lightweight CLI for debugging MCP integrations.">
+<meta name="keywords" content="MCP, debug, proxy, Model Context Protocol, CLI, developer tools, debugging, AI agents">
+<style>
+  body { font-family: -apple-system, 'Inter', sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; background: #0d1117; color: #c9d1d9; line-height: 1.7; }
+  h1 { color: #58a6ff; }
+  h2 { color: #f0f6fc; margin-top: 32px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+  pre { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; overflow-x: auto; }
+  code { font-family: 'JetBrains Mono', monospace; }
+  .cmd { color: #7ee787; }
+  .comment { color: #8b949e; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #30363d; padding: 8px 12px; text-align: left; }
+  th { background: #161b22; }
+  .buy-cta { display: inline-block; background: #238636; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 16px; }
+  .buy-cta:hover { background: #2ea043; }
+</style>
+</head>
+<body>
+<h1>🔍 MCP Debug Proxy</h1>
+<p><em>Intercept, log, analyze, and replay MCP server traffic.</em></p>
+
+<h2>Quick Install</h2>
+<pre><code><span class="cmd">pip install mcp-debug-proxy</span>
+
+<span class="comment"># Record a session</span>
+<span class="cmd">mcp-debug --out session.json -- python my_server.py</span>
+
+<span class="comment"># Generate a report</span>
+<span class="cmd">mcp-debug --report session.json</span></code></pre>
+
+<h2>Features</h2>
+<ul>
+  <li><strong>Proxy Mode</strong> — sits between client and server, records all JSON-RPC traffic</li>
+  <li><strong>Latency Analysis</strong> — per-method response times</li>
+  <li><strong>Session Recording</strong> — full message log with microsecond timing</li>
+  <li><strong>Export</strong> — JSON, text reports, Mermaid diagrams (paid)</li>
+  <li><strong>Replay</strong> — replay sessions for regression testing (paid)</li>
+</ul>
+
+<h2>Example Output</h2>
+<pre><code>═══════════════════════════════════
+MCP Debug Proxy Report — session
+═══════════════════════════════════
+Duration: 3,420ms
+Messages: 24
+Requests: 8
+Avg latency: 94ms
+Slowest: write_file — 1,240ms
+
+Method breakdown:
+  tools/list:     2x  (142ms avg)
+  tools/call:     4x  (94ms avg)
+  resources/list: 2x  (95ms avg)</code></pre>
+
+<h2>Free vs Paid</h2>
+<table>
+<tr><th>Feature</th><th>Free</th><th>Paid ($9)</th></tr>
+<tr><td>Session recording</td><td>✅</td><td>✅</td></tr>
+<tr><td>Text report</td><td>✅</td><td>✅</td></tr>
+<tr><td>Latency breakdown</td><td>✅</td><td>✅</td></tr>
+<tr><td>JSON export</td><td>✅</td><td>✅</td></tr>
+<tr><td>Mermaid diagrams</td><td>❌</td><td>✅</td></tr>
+<tr><td>Session replay</td><td>❌</td><td>✅</td></tr>
+<tr><td>Session comparison</td><td>❌</td><td>✅</td></tr>
+</table>
+
+<p><a href="https://shadowcraft41.gumroad.com/l/ypnsof" class="buy-cta">Buy Full Version — $9 →</a></p>
+<p style="margin-top: 8px;">Use code <strong>LAUNCH</strong> for 50% off ($4.50)</p>
+
+<h2>GitHub</h2>
+<p><a href="https://github.com/ZachDreamZ/mcp-debug-proxy">github.com/ZachDreamZ/mcp-debug-proxy</a></p>
+</body>
+</html>
