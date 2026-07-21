@@ -2,71 +2,42 @@
 
 Intercept, log, analyze, and replay **MCP (Model Context Protocol)** server traffic.
 
-## Why?
+## Free vs Paid
 
-Debugging MCP servers means staring at raw stdio output or adding print
-statements. `mcp-debug` wraps any MCP server process and gives you:
-
-- **Full session recording** — every JSON-RPC message with timing
-- **Latency analysis** — per-method response times
-- **Replay engine** — replay recorded sessions at any speed
-- **Export formats** — JSON, text reports, Mermaid sequence diagrams
-- **Zero code changes** — works with any stdio-based MCP server
+| Feature | Free (GitHub) | Paid ($9) |
+|---------|:---:|:---:|
+| Session recording (JSON-RPC log) | ✅ | ✅ |
+| Text report | ✅ | ✅ |
+| Latency breakdown by method | ✅ | ✅ |
+| JSON export | ✅ | ✅ |
+| Mermaid sequence diagrams | ❌ | ✅ |
+| Session replay engine | ❌ | ✅ |
+| Session comparison (diff two runs) | ❌ | ✅ |
+| Filter by method/error/timing | ❌ | ✅ |
+| Priority support | ❌ | ✅ |
 
 ## Quick Start
 
 ```bash
-# Install
 pip install mcp-debug-proxy
 
-# Proxy an MCP server
-mcp-debug -- npx @modelcontextprotocol/server-filesystem /tmp
-
-# Record to file
-mcp-debug --out session.json -- npx @modelcontextprotocol/server-filesystem /tmp
-
-# Analyze a recording
+# Record a session (free - text report only)
+mcp-debug --out session.json -- python my_server.py
 mcp-debug --report session.json
-
-# Generate a diagram
-mcp-debug --mermaid session.json
-
-# Replay at 2x speed
-mcp-debug --replay session.json --rate 2.0
 ```
 
-## Features
+[Get the full version →](https://shadowcraft41.gumroad.com/l/ypnsof)
 
-### Proxy Mode
-Sits between your AI client and any stdio-based MCP server. Every message
-is recorded with microsecond timing.
+## Why Pay?
 
-### Analysis
-- Latency breakdown by method
-- Error rate tracking
-- Message volume statistics
-- Full message log with timing
+The paid version adds **Mermaid diagrams**, **session replay**, **session comparison**, and **smart filtering** — everything you need for serious debugging, documentation, and CI pipelines.
 
-### Replay
-Test client behavior by replaying recorded server responses at any speed.
-Useful for regression testing and load testing.
+## Install
 
-## Output Formats
+```bash
+pip install mcp-debug-proxy
+```
 
-- **Text reports** — human-readable session summary
-- **JSON export** — machine-readable for CI pipelines
-- **Mermaid diagrams** — visual sequence diagrams for documentation
+## MIT License
 
-## Requirements
-
-- Python 3.10+
-- Works with any stdio-based MCP server
-
-## License
-
-MIT
-
-## Free Tool: MCP Health Check
-
-For a quick way to verify your MCP server is working, check out [MCP Health Check](https://github.com/ZachDreamZ/mcp-health-check) — a free CLI that tests initialize, 	ools/list, and response latency.
-
+The core proxy engine is MIT licensed. The premium features (Mermaid export, replay, comparison, filtering) require a license key from the paid version.
